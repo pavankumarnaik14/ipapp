@@ -23,7 +23,7 @@ jobs:
             pipenv run python test.py
             pipenv run python getip.py
       - store_test_results:
-          path: test-results      
+          path: ~/repo/test-results      
       - store_artifacts:
-          path: test-results
-          destination: test-reports
+          path: ~/repo/test-results
+          destination: ~/repo/test-reports
