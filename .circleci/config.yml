@@ -22,7 +22,8 @@ jobs:
           command: |
             pipenv run python test.py
             pipenv run python getip.py
-            
+      - store_test_results:
+          path: test-results      
       - store_artifacts:
-          path: test-reports
+          path: test-results
           destination: test-reports
