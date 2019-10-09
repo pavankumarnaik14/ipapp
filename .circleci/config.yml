@@ -8,22 +8,13 @@ jobs:
 
     steps:
       - checkout     
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "Pipfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
       - run:
           name: install dependencies
           command: |
             sudo pip install pipenv
             pipenv install
             sudo pip install flask 
-      - save_cache:
-          paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "Pipfile.lock" }}
+      
         
       # run tests!
       - run:
