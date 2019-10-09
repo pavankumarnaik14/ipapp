@@ -7,7 +7,7 @@ def index():
 class TestApp(unittest.TestCase):
     def test_remote_addr(self):
         hostname = json.load(urlopen('http://ipinfo.io/json'))
-        self.assertEqual('157.45.49.149',hostname['ip'])
+        self.assertRegex(hostname['ip'],r'^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$')
 
 if __name__ == '__main__':
     unittest.main()
