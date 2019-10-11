@@ -1,9 +1,7 @@
-import unittest
-import socket    
+import unittest    
 from urllib.request import urlopen
 import json
-def index():
-    return str(request.remote_addr)
+
 class TestApp(unittest.TestCase):
     def test_remote_addr(self):
         hostname = json.load(urlopen('http://ipinfo.io/json'))
