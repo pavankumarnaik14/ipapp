@@ -7,7 +7,8 @@ jobs:
     working_directory: ~/repo
 
     steps:
-      - checkout     
+      - checkout
+      - run: mkdir test-reports
       - run:
           name: install dependencies
           command: |
@@ -24,5 +25,7 @@ jobs:
             pipenv run python getip.py
             
       - store_artifacts:
-          path: test-reports
+          path: test-reports/
           destination: tr1
+      - store_test_results:
+          path: test-reports/
